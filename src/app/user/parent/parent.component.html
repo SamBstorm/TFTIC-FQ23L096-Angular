@@ -1,0 +1,15 @@
+<div style="background-color: crimson;">
+
+  <h1>PARENT</h1>
+  <input [(ngModel)]="value" type="text">
+<br>
+  <p>Enfant value : {{enfantValue}}</p>
+<br>
+  <app-enfant (myOutput)="receiveOutput($event)" [parentValue]="value"></app-enfant>
+
+
+</div>
+
+
+
+
