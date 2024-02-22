@@ -4,8 +4,14 @@
   <input [(ngModel)]="value" type="text">
 <br>
   <p>Enfant value : {{enfantValue}}</p>
+  <p>Service value :{{valueService}}</p>
 <br>
+<br>
+<button (click)="changeServiceValue()">Change service value</button>
   <app-enfant (myOutput)="receiveOutput($event)" [parentValue]="value"></app-enfant>
+
+  <br>
+
 
 
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-parent',
@@ -6,6 +7,23 @@ import { Component } from '@angular/core';
   styleUrl: './parent.component.scss'
 })
 export class ParentComponent {
+
+
+  constructor(private _userService : UserService) {
+
+
+  }
+
+
+  public get valueService() : string {
+    return this._userService.maVar
+  }
+
+  changeServiceValue(){
+    this._userService.maVar = "Valeur changée"
+  }
+
+
 
   //INPUT
 
