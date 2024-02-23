@@ -1,0 +1,15 @@
+<p>Liste des produits :
+</p>
+
+<ul>
+  @for (item of shopList; track $index) {
+    <li>
+      <p>{{item[0]| titlecase}} : {{item[1]}}</p>
+      <button (click)="substract(item[0])">-</button>
+    </li>
+  }
+</ul>
+
+
+
+<app-enfant></app-enfant>
