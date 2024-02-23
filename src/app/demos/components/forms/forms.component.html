@@ -2,8 +2,23 @@
 
 <form [formGroup]="myFormGroup">
   <input type="text" formControlName="control1">
-
+  @if (this.myFormGroup.get('control1')?.dirty && !this.myFormGroup.get('control1')?.valid) {
+    <p style="color: red;">Champ Requis</p>
+  }
+<br>
   <input type="text" formControlName="control2">
+<br>
 
-  <button [disabled]="!myFormGroup.valid" type="button" (click)="submit()">Valider</button>
+<p>Array</p>
+<br>
+<div formArrayName="array" *ngFor="let item of myArray.controls; let i = index">
+    <p>{{i + 1}}</p>
+    <input type="text" [formControlName]="i">
+    <button (click)="removeElement(i)">-</button>
+</div>
+<br>
+<button (click)="extendArray()">+</button>
+<br>
+ <button [disabled]="!myFormGroup.valid" type="button" (click)="submit()">Valider</button>
+<br>
 </form>
