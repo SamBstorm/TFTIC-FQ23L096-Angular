@@ -1,0 +1,9 @@
+<p>forms works!</p>
+
+<form [formGroup]="myFormGroup">
+  <input type="text" formControlName="control1">
+
+  <input type="text" formControlName="control2">
+
+  <button [disabled]="!myFormGroup.valid" type="button" (click)="submit()">Valider</button>
+</form>

@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {path : 'user', loadChildren : () => import('./user/user.module').then(m => m.UserModule)},
   {path : 'exos', loadChildren : () => import('./exos/exos.module').then(m => m.ExosModule)},
+  {path : 'demos', loadChildren : () => import('./demos/demos.module').then(m => m.DemosModule)},
+
   {path : '**', redirectTo : 'user'}
 ];
 
