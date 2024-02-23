@@ -1,0 +1,27 @@
+<p>forms works!</p>
+
+<form [formGroup]="formGroup">
+  <label>Nom</label>
+  <input type="text" formControlName="lastname">
+  <br>
+  <label>Prenom</label>
+  <input type="text" formControlName="firstname">
+  <br>
+  <label>Email</label>
+  <input type="email" formControlName="email">
+  <br>
+  <label>Mot de passe</label>
+  <input type="password" formControlName="password">
+  <br>
+  <label>adresse</label>
+  <input type="text" formControlName="address">
+  <br>
+  <label>Numero de telephone</label>
+  <input type="text" formControlName="phone">
+  <br>
+  <label>Date de naissance</label>
+  <input type="date" formControlName="birthdate">
+  <br>
+  <input [disabled]="!formGroup.valid" (click)="Add()" type="button" value="Submit">
+</form>
+
