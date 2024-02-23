@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../interfaces/user.interface';
 
 @Component({
@@ -22,11 +22,26 @@ export class FormsComponent implements OnInit {
       password : [null, [Validators.required, Validators.minLength(8)]],
       address : [null],
       phone : [null],
-      birthdate : [null, [Validators.required]]
+      birthdate : [null, [Validators.required]],
+      pseudos : this._formBuilder.array([])
     })
   }
 
+
+  public get pseudosArray() : FormArray {
+    return this.formGroup.get('pseudos') as FormArray
+  }
+
   Add(){
+    this.pseudosArray.push(new FormControl(null, Validators.required))
+  }
+
+  remove(index : number){
+    this.pseudosArray.controls.splice(index, 1)
+  }
+
+
+  submit(){
 
     let values = this.formGroup.value
 
@@ -37,7 +52,8 @@ export class FormsComponent implements OnInit {
       birthdate :values['birthdate'],
       email : values['email'],
       password : values['password'],
-      phone : values['phone']
+      phone : values['phone'],
+      pseudos : values['pseudos']
     }
 
     console.log(user);

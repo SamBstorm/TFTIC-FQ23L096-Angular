@@ -5,5 +5,6 @@ export interface User {
   password : string,
   address : string,
   phone : string,
-  birthdate : Date
+  birthdate : Date,
+  pseudos : string[]
 }
